@@ -5,7 +5,7 @@ export default function Card({user,handleremove}) {
     <>
     {user.map((item,index)=>(
       
-      <div className="cards w-52 h-72 gap-2 bg-white  rounded-md flex justify-center items-center flex-col" >
+      <div className="cards w-52 h-72 gap-2 border-2 border-black bg-yellow-400  rounded-md flex justify-center items-center flex-col  hover:scale-110 ease-out duration-75 ..." >
       <span >
       <img className="w-20 h-20  rounded-full  object-fill" src={item.image} alt="" />
      </span>

@@ -24,11 +24,11 @@ function App() {
   return (
     <>
 
-        <div className="main w-full h-screen bg-zinc-300 ">
-              <div className="Card w-4/6 h-3/4  bg-green-600 gap-3 m-auto flex justify-center items-center rounded-md ">
+        <div className="main w-full h-screen bg-zinc-600 ">
+              <div className="Card w-4/6 h-3/4  bg-white gap-3 m-auto flex justify-center items-center rounded-md ">
               <Card handleremove={handleremove} user={user}/>
               </div>
-             <div className="form Card w-4/6 h-36 bg-white m-auto flex justify-center items-center rounded-md">
+             <div className="form Card w-4/6 h-36 bg-yellow-400 m-auto flex justify-center items-center rounded-md">
              <Form handleform={handleform}/>
              </div>
               

@@ -12,7 +12,7 @@ const  handlingsubmit = (data)=>{
 
   return (
     <div >
-      <div className="forms gap-2 bg-slate-200 ">
+      <div className="forms gap-2 bg-black rounded-md ">
       <form  className='flex justify-center items-center   gap-4 p-2 m-3 rounded-sm'  action="" onSubmit={handleSubmit(handlingsubmit)}>
         <input {...register("name")}  type="text" placeholder='name' />
         <input {...register("email")} type="email" placeholder='email' />
