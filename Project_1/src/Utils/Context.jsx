@@ -7,7 +7,7 @@ export  const  productContext = createContext();
 const Context = (props) => {
     // console.log(props)
 
-    const[product,setproducts] =  useState(null)
+    const[product,setproducts] =  useState(JSON.parse(localStorage.getItem("products")) ||null)
 
     const getproducts = async()=>{
         try{
@@ -23,6 +23,7 @@ const Context = (props) => {
 
         getproducts();
     },[])
+
 
   return (
     <div>

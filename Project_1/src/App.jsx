@@ -5,6 +5,7 @@ import './App.css'
 import Home from './Components/Home'
 import { Route,Routes,Link, useLocation } from 'react-router-dom'
 import Details from './Components/Details'
+import Create from './Components/Create'
 //np work is done on 23/4/2024
 function App() { 
   // const [count, setCount] = useState(0)
@@ -26,6 +27,7 @@ function App() {
     <Routes>
  
     <Route path='/' element={<Home/>}/>
+    <Route path='/create' element={<Create/>}/>
     <Route path='/details/:id' element={<Details/>}/>
  
     </Routes>

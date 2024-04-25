@@ -18,20 +18,24 @@ const Home = () => {
 const [filteredProducts, setfilteredProducts] = useState(null)
 
 
-  const getproductcategory = async()=>{
+  // const getproductcategory = async()=>{
 
-    try {
-      const { data } = await axios.get(`/products/category/${category}`)
-      console.log(data)
-      setfilteredProducts(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //   try {
+  //     const { data } = await axios.get(`/products/category/${category}`)
+  //     console.log(data)
+  //     setfilteredProducts(data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   useEffect(()=>{
           if (!filteredProducts || category == "undefined") setfilteredProducts(products)
-          if(category  != "undefined") getproductcategory();
+          if(category  != "undefined"){
+
+            setfilteredProducts(products.filter((p)=> p.category == category))
+            // getproductcategory();
+          } 
 
   },[category, products])
 
