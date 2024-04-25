@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { productContext } from '../Utils/Context'
+import { Link } from 'react-router-dom';
 
 
 
@@ -7,10 +8,25 @@ const Nav = () => {
 
   const [products]= useContext(productContext)
 
-  const ds_category = products.reduce((acc,cv)=>[...acc, cv],[]);
-  // console.log(category)
+  let ds_category = products && products.reduce((acc,cv)=>[...acc, cv.category],[]);
+  
+   ds_category= [...new Set(ds_category)]
+ 
+  // console.log(ds_category)
+
+  const color = ()=>{
+
+    return (
+        `rgba(${(Math.random ()*225).toFixed()},${(
+
+          Math.random ()*255
+        ).toFixed()},${(Math.random ()*255).toFixed()},0.4)`
+
+    )
+  }
    
-  // ds_category = [...new Set(ds_category)]
+
+ 
    
   return (
     <>
@@ -29,30 +45,25 @@ const Nav = () => {
   <hr />
   <h1 className='ml-10 mb-3 mt-8  font-bold  '>Category Filter</h1>
 
-  <ul className=' w-[50%] flex flex-col  justify-center items-center'>
-    <li className=' mb-2  mt-2  flex justify-center items-center '>
-   <span className=' rounded-full  mr-3 bg-blue-200 w-[15px] h-[15px] '></span>
-      cart 1
-    </li>
-
-    <li className=' mb-2  mt-2  flex justify-center items-center '>
-   <span className=' rounded-full  mr-3 bg-red-200 w-[15px] h-[15px] '></span>
-      cart 2
-    </li>
-
-    <li className=' mb-2  mt-2  flex justify-center items-center '>
-   <span className=' rounded-full  mr-3 bg-green-200 w-[15px] h-[15px] '></span>
-      cart 3
-    </li>
+  <div className=' w-[100%]    '>
     
+    {ds_category.map((c,i)=>(
+        <Link  key={i} to={`/?category=${c}`} className=' mb-2   flex  items-center '>
+        <span  style={{backgroundColor:color()}}  className=' rounded-full mr-2 ml-2 bg-blue-200 w-[15px] h-[15px] '></span>
+         {c}
+        </Link> 
+
+    ))}
     
-    <li className=' mb-2  mt-2  flex justify-center items-center '>
-   <span className=' rounded-full  mr-3 bg-orange-200 w-[15px] h-[15px] '></span>
-      cart 4
-    </li>
 
 
-  </ul>
+   
+    
+   
+
+
+
+  </div>
 
 
 </nav>
