@@ -4,6 +4,6 @@ import calculatorReducer from "./reducer/calculatorReducer";
 
 export const store = configureStore({
   reducer: {
-    getcal: calculatorReducer,
+    calculatorReducer: calculatorReducer,
   },
 });

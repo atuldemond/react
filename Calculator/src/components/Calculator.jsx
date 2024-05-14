@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getdata, getdeledata } from "../store/reducer/calculatorReducer";
+import {
+  seven,
+  getdeletedata,
+  getadding,
+} from "../store/reducer/calculatorReducer";
 
 const Calculator = () => {
-  const getcal = useSelector((state) => state.getcal);
-  console.log(getcal);
+  const { value } = useSelector((state) => state.calculatorReducer);
+  console.log(value);
 
   const dispatch = useDispatch();
 
@@ -14,8 +18,9 @@ const Calculator = () => {
       <div className=" text-white bg-black scale-90 calculator rounded-lg flex flex-col  items-center w-[30vw] h-auto py-[3vh] border-2 border-black">
         <form className=" flex justify-center">
           <input
-            className="w-[28vw] text-black h-[10vh] mb-[3vh] "
+            className="w-[28vw] font-semibold text-3xl text-right  text-black h-[10vh] mb-[3vh] "
             type="text"
+            value={value}
           />
         </form>
         <div className="keypad w-[28vw] h-[60vh] flex gap-5 justify-center items-center flex-wrap border-black border-2 ">
@@ -24,7 +29,7 @@ const Calculator = () => {
             hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
              text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="7"
-            onClick={() => dispatch(getdata())}
+            onClick={() => dispatch(seven(7))}
           >
             7
           </button>
@@ -33,7 +38,7 @@ const Calculator = () => {
              hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
               text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="8"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(8))}
           >
             8
           </button>
@@ -42,7 +47,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
             text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="9"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(9))}
           >
             9
           </button>
@@ -51,7 +56,7 @@ const Calculator = () => {
             hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
              text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="+"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("+"))}
           >
             +
           </button>
@@ -60,7 +65,7 @@ const Calculator = () => {
             hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
              text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="4"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(4))}
           >
             4
           </button>
@@ -69,7 +74,7 @@ const Calculator = () => {
              hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
               text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="5"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(5))}
           >
             5
           </button>
@@ -78,7 +83,7 @@ const Calculator = () => {
             hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
              text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="6"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(6))}
           >
             6
           </button>
@@ -87,7 +92,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
             text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="*"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("*"))}
           >
             *
           </button>
@@ -96,7 +101,7 @@ const Calculator = () => {
           hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
            text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="3"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(3))}
           >
             3
           </button>
@@ -105,7 +110,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
             text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="2"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(2))}
           >
             2
           </button>
@@ -114,7 +119,7 @@ const Calculator = () => {
              hover:scale-110 hover:ease-out duration-75 rounded-lg bg-slate-700
               text-4xl font-extrabold  h-[10vh] border-2 border-black"
             name="1"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(1))}
           >
             1
           </button>
@@ -123,7 +128,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
             text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="-"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("-"))}
           >
             -
           </button>
@@ -132,7 +137,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
             text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="ac"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("0"))}
           >
             Ac
           </button>
@@ -141,7 +146,7 @@ const Calculator = () => {
             hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
              text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="0"
-            // onClick={handleclick}
+            onClick={() => dispatch(seven(0))}
           >
             0
           </button>
@@ -150,7 +155,7 @@ const Calculator = () => {
            hover:scale-110 hover:ease-out duration-75 rounded-lg bg-sky-400
             text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="."
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("."))}
           >
             .
           </button>
@@ -159,7 +164,7 @@ const Calculator = () => {
           hover:scale-110 hover:ease-out duration-75 rounded-lg bg-green-400
            text-4xl font-extrabold text-black h-[10vh] border-2 border-black"
             name="="
-            // onClick={handleclick}
+            onClick={() => dispatch(seven("="))}
           >
             =
           </button>
